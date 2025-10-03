@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Optimized Minimal 4D Gaussian Splatting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+    <!--div class="hero-body"style="background-color:#f5f5f5;"-->
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="line-height:1.2;">
+              <span style="font-size:1.5em; color: rgb(96, 120, 172); font-weight: bold;">OMG4</span><br>
+
+              <span style="color: rgb(96, 120, 172); font-weight: bold;">O</span>ptimzied 
+              <span style="color: rgb(96, 120, 172); font-weight: bold;">M</span>inimal 
+              <span style="color: rgb(96, 120, 172); font-weight: bold;">4</span>D 
+              <span style="color: rgb(96, 120, 172); font-weight: bold;">G</span>aussian Splatting
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Minseo Lee<sup>1</sup><sup>*</sup>,</span>
+              <span class="author-block">
+                Byeonghyeon Lee<sup>1</sup><sup>*</sup>,</span>
+              <span class="author-block">
+                Lucas Yunkyu Lee<sup>2,3</sup>,</span>
+              <span class="author-block">
+                Eunsoo Lee<sup>1</sup>,</span>
+              <span class="author-block">
+                Sangmin Kim<sup>2</sup>,</span>
+              <span class="author-block">
+                Seunghyeon Song<sup>4</sup>,</span>
+              <span class="author-block">
+                Joo Chan Lee<sup>4</sup>,</span>
+              <span class="author-block" style="color: rgb(96, 120, 172);">
+                Jong Hwan Ko<sup>4</sup>,
+              </span>
+              <span class="author-block" style="color: rgb(96, 120, 172);">
+                Jaesik Park<sup>2</sup>, and
+              </span>
+              <span class="author-block" style="color: rgb(96, 120, 172);">
+                Eunbyung Park<sup>1</sup>,
+              </span>
+
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Yonsei University</span>
+              <span class="author-block"><sup>2</sup>Seoul National University</span>
+              <span class="author-block"><sup>3</sup>POSTECH</span>
+              <span class="author-block"><sup>4</sup>Sungkyunkwan University</span> <br>
+              <span class="author-block"><sup>*</sup>Equal contribution</span>
+            </div>
+            <div class="column has-text-centered">
+                <span class="link-block">
+                <!--a href="https://arxiv.org/abs/2401.00834"
+                   class="external-link button is-normal is-rounded is-dark"-->
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <!--a href="https://github.com/LMinSeo/LMinSeo/Optimized Minimal 4D Gaussian Splatting"
+                    class="external-link button is-normal is-rounded is-dark"-->
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ffmpeg -i /hdd/lms20031/Deblurring-3D-Gaussian-Splatting/static/videos/Ours/coffee_martini.mp4 -c:v libx264 -c:a aac -strict -2 /hdd/lms20031/Deblurring-3D-Gaussian-Splatting/static/videos/Ours/coffee_martini_re.mp4-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        
+        <!-- Video -->
+        <video
+          class="video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          style="width:100%; height:auto; object-fit:contain; display:block; margin:0 auto;">
+          <source src="./static/videos/video_teaser.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div align="center">
+            <img src="static/images/teaser.png" style="width:100%">
+          </div>
+          <div class="content has-text-justified">
+            <p>
+            4D Gaussian Splatting has emerged as a new paradigm for dynamic scene representation, enabling real-time rendering of scenes with complex motions. However, it faces a major challenge of storage overhead, as millions of Gaussians are required for high-fidelity reconstruction. While several studies have attempted to alleviate this memory burden, they still face limitations in compression ratio or visual quality.
+            In this work, we present <b>OMG4</b> (Optimized Minimal 4D Gaussian Splatting), a framework that constructs a compact set of salient Gaussians capable of faithfully representing 4D Gaussian models.
+            Our method progressively prunes Gaussians in three stages: 
+            (1) <b>Gaussian Sampling</b> to identify primitives critical to reconstruction fidelity, 
+            (2) <b>Gaussian Pruning</b> to remove redundancies, and 
+            (3) <b>Gaussian Merging</b> to fuse primitives with similar characteristics.
+            In addition, we integrate implicit appearance compression and generalize Sub-Vector Quantization (SVQ) to 4D representations, further reducing storage while preserving quality.
+            Extensive experiments on standard benchmark datasets demonstrate that <b>OMG4</b> significantly outperforms recent state-of-the-art methods, reducing model sizes by over 60% while maintaining reconstruction quality.
+            These results position <b>OMG4</b> as a significant step forward in compact 4D scene representation, opening new possibilities for a wide range of applications.
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+    </div>
+  </section>
+
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Optimized Minimal 4D Gaussians</h2>
+          <div class="content has-text-justified">
+            <div style="margin-top: 40px">
+              <img src="./static/images/main.jpg">
+            </div>
+            
+            <p align="justify">We progressively prune 4D Gaussian primitives to minimize redundancy while preserving fidelity. 
+              To achieve a efficiently compressed yet high quality model, OMG4 identifies the most crucial primitives, removes redundancies, and fuses those with similar characteristics. 
+              Combining this process with attribute compression, we ensure efficient 4D scene reconstruction.</p>
+            <h3>Gaussian Sampling</h3>
+              <img src="./static/images/gaussian_sampling_epark.jpg">
+              
+            <p align="justify">To sample the most crucial Gaussians, we calculate their importance using the SD score. 
+              Gaussian Sampling selects those that have the greatest impact on rendering quality, preserving PSNR while retaining only 20% of the original representation.</p>
+            <h3>Gaussian Pruning</h3>
+            </div>
+            <img src="./static/images/gaussian_pruning_epark.jpg">
+            <p align="justify">Although the initial Gaussian Sampling stage with the SD-Score produces a set of critical Gaussians, it still contains redundancies. 
+              To address this, Gaussian Pruning strategy further refines the set by removing unnecessary Gaussians.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Visual Comparisons</h2>
+
+
+        <div class="video-grid">
+            <div id="example1" class="bal-container-small">
+                
+                <div class="bal-after">
+                    <video id="vid1" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                        <source src="./static/videos/Ours/coffee_martini_re.mp4" type="video/mp4">
+                    </video>
+                    <div class="bal-afterPosition afterLabel">
+
+                    </div>
+                    </div>
+
+                <div class="bal-before">
+                    <div class="bal-before-inset">
+                        <video id="vid2" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                            <source src="./static/videos/Real-Time4DGS/coffee_martini_re.mp4" type="video/mp4">
+                        </video> 
+                        <div class="bal-beforePosition beforeLabel"></div>
+                        </div>
+                </div>
+
+                <div class="bal-handle" style="left:50%;" > <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                </div>
+            </div>
+
+            <div id="example2" class="bal-container-small">
+                
+                <div class="bal-after">
+                    <video id="vid1" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                        <source src="./static/videos/Ours/cook_spinach_re.mp4" type="video/mp4">
+                    </video>
+                    <div class="bal-afterPosition afterLabel">
+
+                    </div>
+                    </div>
+
+                <div class="bal-before">
+                    <div class="bal-before-inset">
+                        <video id="vid2" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                            <source src="./static/videos/Real-Time4DGS/cook_spinach_re.mp4" type="video/mp4">
+                        </video> 
+                        <div class="bal-beforePosition beforeLabel"></div>
+                        </div>
+                </div>
+
+                <div class="bal-handle" style="left:50%;" > <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                </div>
+            </div>
+
+            <div id="example3" class="bal-container-small">
+                
+                <div class="bal-after">
+                    <video id="vid1" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                        <source src="./static/videos/Ours/cut_roasted_beef_re.mp4" type="video/mp4">
+                    </video>
+                    <div class="bal-afterPosition afterLabel"></div>
+                </div>
+
+                <div class="bal-before">
+                    <div class="bal-before-inset">
+                        <video id="vid2" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                            <source src="./static/videos/Real-Time4DGS/cut_roasted_beef_re.mp4" type="video/mp4">
+                        </video> 
+                        <div class="bal-beforePosition beforeLabel"></div>
+                      </div>
+                </div>
+
+                <div class="bal-handle" style="left:50%;" > <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                </div>
+            </div>
+
+
+
+            <div id="example4" class="bal-container-small">
+                
+                <div class="bal-after">
+                    <video id="vid1" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                        <source src="./static/videos/Ours/flame_salmon_re.mp4" type="video/mp4">
+                    </video>
+                    <div class="bal-afterPosition afterLabel"></div>
+                </div>
+
+                <div class="bal-before">
+                    <div class="bal-before-inset">
+                        <video id="vid2" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                            <source src="./static/videos/Real-Time4DGS/flame_salmon_re.mp4" type="video/mp4">
+                        </video> 
+                        <div class="bal-beforePosition beforeLabel"></div>
+                      </div>
+                </div>
+
+                <div class="bal-handle" style="left:50%;" > <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                </div>
+            </div>
+
+
+            <div id="example5" class="bal-container-small">
+                
+                <div class="bal-after">
+                    <video id="vid1" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                        <source src="./static/videos/Ours/flame_steak_re.mp4" type="video/mp4">
+                    </video>
+                    <div class="bal-afterPosition afterLabel"></div>
+                </div>
+
+                <div class="bal-before">
+                    <div class="bal-before-inset">
+                        <video id="vid2" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                            <source src="./static/videos/Real-Time4DGS/flame_steak_re.mp4" type="video/mp4">
+                        </video> 
+                        <div class="bal-beforePosition beforeLabel"></div>
+                      </div>
+                </div>
+
+                <div class="bal-handle" style="left:50%;" > <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                </div>
+            </div>
+
+
+            <div id="example6" class="bal-container-small">
+                
+                <div class="bal-after">
+                    <video id="vid1" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                        <source src="./static/videos/Ours/sear_steak_re.mp4" type="video/mp4">
+                    </video>
+                    <div class="bal-afterPosition afterLabel"></div>
+                </div>
+
+                <div class="bal-before">
+                    <div class="bal-before-inset">
+                        <video id="vid2" autoplay muted loop playsinline style="width:100%; height:auto; object-fit:contain;">
+                            <source src="./static/videos/Real-Time4DGS/sear_steak_re.mp4" type="video/mp4">
+                        </video> 
+                        <div class="bal-beforePosition beforeLabel"></div>
+                      </div>
+                </div>
+
+                <div class="bal-handle" style="left:50%;" > <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                </div>
+            </div>
+            
+        </div>
+  </section>
+
+  <style>
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    grid-gap: 20px; /* 칸 간격 */
+  }
+
+  .bal-afterPosition, .bal-beforePosition {
+      /* ⚡️ 절대 위치로 설정하여 문서의 흐름(줄 바꿈)에서 제거 */
+      position: relative; 
+      top: 10px; /* 상단에서 10px 떨어진 위치에 고정 */
+      z-index: 0; /* 슬라이더 핸들보다 위에 오도록 높은 z-index 설정 */
+      
+      /* 라벨 디자인 */
+      padding: 0px 0px;
+      background:transparent;
+      color: white;
+      border-radius: 4px;
+      font-size: 14px;
+      white-space: nowrap; /* 텍스트가 줄 바꿈 되는 것을 방지 */
+  }
+
+  .bal-container-small {
+      position: relative; /* ⬅️ 이 속성이 반드시 있어야 합니다. */
+      cursor: ew-resize;
+      aspect-ratio: 4 / 3; 
+      object-fit: contain;
+      height: 100%;
+  }
+  </style>
+  <script>
+      new BeforeAfter({
+        id: '#example1'
+      });
+      new BeforeAfter({
+        id: '#example2'
+      });
+      new BeforeAfter({
+        id: '#example3'
+      });
+      new BeforeAfter({
+        id: '#example4'
+      });
+      new BeforeAfter({
+        id: '#example5'
+      });
+      new BeforeAfter({
+        id: '#example6'
+      });
+
+      // 👇 모든 비디오 동기화 함수
+      function syncAllVideos() {
+          const allVideos = document.querySelectorAll('.bal-container-small video');
+          let loadedCount = 0;
+
+          allVideos.forEach(video => {
+              // autoplay 정책 회피용
+              video.muted = true; 
+              video.preload = "auto";
+
+              // 비디오가 준비되면 카운트 증가
+              video.addEventListener('loadeddata', () => {
+                  loadedCount++;
+                  // 모든 비디오가 준비되면 동시에 재생
+                  if (loadedCount === allVideos.length) {
+                      allVideos.forEach(v => {
+                          v.currentTime = 0;
+                          v.play().catch(()=>{});
+                      });
+                  }
+              });
+          });
+      }
+
+      // 페이지 로드가 끝나면 동기화 시도
+      window.addEventListener('load', syncAllVideos);
+  </script>
+
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Point Cloud</h2>
+
+      <div class="pointcloud-grid">
+        <!-- 1번 비디오 -->
+        <div class="video-item">
+          <video autoplay muted loop playsinline>
+            <source src="./static/videos/1_RT4DGS.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">Real-Time4DGS</p>
+        </div>
+
+        <!-- 2번 비디오 -->
+        <div class="video-item">
+          <video autoplay muted loop playsinline>
+            <source src="./static/videos/2_GS.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">Gaussian Sampling</p>
+        </div>
+
+        <!-- 3번 비디오 -->
+        <div class="video-item">
+          <video autoplay muted loop playsinline>
+            <source src="./static/videos/3_GP.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">Gaussian Pruning</p>
+        </div>
+
+        <!-- 4번 비디오 -->
+        <div class="video-item">
+          <video autoplay muted loop playsinline>
+            <source src="./static/videos/4_GM.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">Gaussian Merging</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .pointcloud-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2열 */
+    grid-gap: 20px; /* 간격 */
+  }
+
+  .video-item {
+    text-align: center;
+  }
+
+  .video-item video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    display: block;
+  }
+  .video-label {
+    margin-top: 10px;
+    font-size: 1.25rem;   /* 글자 크기 (1rem = 16px 기준 → 20px 정도) */
+    font-weight: 700;     /* bold */
+    color: #222;          /* 조금 더 진한 색 */
+  }
+  </style>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @misc{lee2024deblurring,
+        title={Deblurring 3D Gaussian Splatting}, 
+        author={Byeonghyeon Lee and Howoong Lee and Xiangyu Sun and Usman Ali and Eunbyung Park},
+        year={2024},
+        eprint={2401.00834},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV}
+      }
+    </code></pre>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2401.00834">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/benhenryL/Deblurring-3D-Gaussian-Splatting" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website borrowed template from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
