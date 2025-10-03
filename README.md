@@ -1,1 +1,1 @@
-# Deblurring-3D-Gaussian-Splatting
+# Optimized 4D Gaussian Splatting
