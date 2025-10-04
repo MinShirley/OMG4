@@ -1,3 +1,8 @@
+# Optimized Minimal 4D Gaussian Splatting
+
+Minseo Lee*, Byeonghyeon Lee*, Lucas Yunkyu Lee, Eunsoo Lee, Sangmin Kim, Seunghyeon Song, Joo Chan Lee, Jong Hwan Ko, Jaesik Park, and Eunbyung Park†
+
+[Project Page](https://minshirley.github.io/OMG4/) &nbsp; [Paper] 
 
 
 Our code is built based on [4D-GS](https://github.com/fudan-zvg/4d-gaussian-splatting)
@@ -20,11 +25,11 @@ conda activate 4dgs_comp
 pip install -r requirement.txt
 ```
 
-Then please download pretrained 4D-GS weight and gradients.
+Then, please download the pretrained 4D-GS weight and gradients.
 
 ### 2. Training
 
-Gradient (2D mean, t) should be calcuated in advance to sample important Gaussians.
+Gradient (2D mean, t) should be calculated in advance to sample important Gaussians.
 If --grad is not designated, it will automatically compute gradients.
 Once you compute gradients (or download provided gradients), please set --grad to your gradient path, not to compute them repeatedly.
 ```
@@ -37,7 +42,7 @@ python train.py \
 You can check the result (w/ various metrics, encoded model size, etc.) at **./res.txt**
 
 ### 3. Evaluation
-At the end of training, evaluation process is implemented. Or you can evaluate the trained model with the encoded "comp.xz" file with the following command
+At the end of training, the evaluation process is implemented. Or you can evaluate the trained model with the encoded "comp.xz" file with the following command
 ```
 python test.py \
 --config ./configs/dynerf/cook_spinach.yaml \
