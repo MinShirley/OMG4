@@ -20,8 +20,8 @@ We ran the experiments in the following environment:
 
 ###  1. Installation
 ```
-conda create -n 4dgs_comp python=3.11
-conda activate 4dgs_comp
+conda create -n OMG4 python=3.11
+conda activate OMG4
 pip install -r requirement.txt
 ```
 
