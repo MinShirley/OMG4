@@ -26,7 +26,9 @@ conda activate OMG4
 pip install -r requirement.txt
 ```
 
-Then, please download the pretrained 4D-GS weight and gradients.
+Then, please download the pretrained 4D-GS weight and gradients.  
+You can download the weights from [Google Drive](https://drive.google.com/drive/folders/1WB7WYOUlvemfYZE35lkl_WV4fiF3p68v?usp=sharing).
+
 
 ### 2. Training
 
@@ -50,4 +52,5 @@ python test.py \
 --comp_checkpoint ./cook_spinach_comp/comp.xz
 ```
 
+The weights reported in our paper are available for download on [Google Drive](https://drive.google.com/drive/folders/1WB7WYOUlvemfYZE35lkl_WV4fiF3p68v?usp=sharing).
 
