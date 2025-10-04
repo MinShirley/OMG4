@@ -1,0 +1,77 @@
+gaussian_dim: 4
+time_duration: [0.0, 10.0]
+num_pts: 300_000
+num_pts_ratio: 1.0
+rot_4d: True
+force_sh_3d: False
+batch_size: 4
+exhaust_test: True
+
+ModelParams:
+  sh_degree: 3
+  source_path: "/data/n3v/sear_steak"
+  model_path: "./sear_steak"  # Not in use
+  images: "images"
+  resolution: 2
+  white_background: False
+  data_device: "cuda"
+  eval: True
+  extension: ".png"
+  num_extra_pts: 0
+  loaded_pth: ""
+  frame_ratio: 1
+  dataloader: True
+
+  PipelineParams:
+    convert_SHs_python: False
+    compute_cov3D_python: False
+    debug: False
+    env_map_res: 0
+    env_optimize_until: 1000000000
+    env_optimize_from: 0
+    eval_shfs_4d: True
+
+  OptimizationParams:
+    iterations: 42_001
+    position_lr_init: 0.00016
+    position_t_lr_init: -1.0
+    position_lr_final: 0.0000016
+    position_lr_delay_mult: 0.01
+    position_lr_max_steps: 42_001
+    feature_lr: 0.0025
+    opacity_lr: 0.05
+    scaling_lr: 0.005
+    rotation_lr: 0.001
+    percent_dense: 0.01
+    lambda_dssim: 0.2
+    thresh_opa_prune: 0.005
+    densification_interval: 100
+    opacity_reset_interval: 3000
+    densify_from_iter: 500
+    densify_until_iter: 15_000
+    densify_grad_threshold: 0.0002
+    densify_grad_t_threshold: 0.0002 / 40 # 想办法用上
+    densify_until_num_points: -1
+    final_prune_from_iter: -1
+    sh_increase_interval: 1000
+    
+    tau_GS: 0.2
+    tau_GP: 0.8
+
+    tau_sim: -0.0003
+    sim_cutoff: 0.7
+    grid_size: 0.1
+    t_grid_size: 2.0
+    grid_exp_ratio: 1.2  # 20% expansion
+
+    slice_scale: 1
+    cluster_scale: 2**9
+    slice_rot: 2
+    cluster_rot: 2**13
+    slice_app: 2
+    cluster_app: 2**10
+
+    slice_scale_t: 1
+    cluster_scale_t: 2**9
+    slice_rot_r: 2
+    cluster_rot_r: 2**13

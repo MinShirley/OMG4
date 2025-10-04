@@ -1,0 +1,52 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda-12.1/bin/nvcc
+
+cflags = -pthread -B /home/lms20031/.conda/envs/4dgs_comp/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/lms20031/.conda/envs/4dgs_comp/include -fPIC -O2 -isystem /home/lms20031/.conda/envs/4dgs_comp/include -fPIC -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include/TH -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda-12.1/include -I/home/lms20031/.conda/envs/4dgs_comp/include/python3.11 -c
+post_cflags = -g -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=pointops2_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+cuda_cflags = -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include/torch/csrc/api/include -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include/TH -I/home/lms20031/.conda/envs/4dgs_comp/lib/python3.11/site-packages/torch/include/THC -I/usr/local/cuda-12.1/include -I/home/lms20031/.conda/envs/4dgs_comp/include/python3.11 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O2 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=pointops2_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86 -std=c++17
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/aggregation/aggregation_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/aggregation/aggregation_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/aggregation/aggregation_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/aggregation/aggregation_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention/attention_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/attention/attention_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention/attention_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/attention/attention_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention_v2/attention_cuda_kernel_v2.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/attention_v2/attention_cuda_kernel_v2.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention_v2/attention_cuda_v2.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/attention_v2/attention_cuda_v2.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/grouping/grouping_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/grouping/grouping_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/grouping/grouping_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/grouping/grouping_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/interpolation/interpolation_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/interpolation/interpolation_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/interpolation/interpolation_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/interpolation/interpolation_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/knnquery/knnquery_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/knnquery/knnquery_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/knnquery/knnquery_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/knnquery/knnquery_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/pointops_api.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/pointops_api.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe/relative_pos_encoding_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/rpe/relative_pos_encoding_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe/relative_pos_encoding_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/rpe/relative_pos_encoding_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe_v2/relative_pos_encoding_cuda_kernel_v2.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/rpe_v2/relative_pos_encoding_cuda_kernel_v2.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe_v2/relative_pos_encoding_cuda_v2.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/rpe_v2/relative_pos_encoding_cuda_v2.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/sampling/sampling_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/sampling/sampling_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/sampling/sampling_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/sampling/sampling_cuda_kernel.cu
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/subtraction/subtraction_cuda.o: compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/subtraction/subtraction_cuda.cpp
+build /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/subtraction/subtraction_cuda_kernel.o: cuda_compile /hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/src/subtraction/subtraction_cuda_kernel.cu
+
+
+
+
+
+

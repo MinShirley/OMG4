@@ -1,0 +1,4 @@
+# ninja log v5
+2	12442	1758003274638030053	/hdd/blee/4d/2mb4dgs/pruning_share2/simple-knn/build/temp.linux-x86_64-cpython-311/simple_knn.o	c524da24b3aca12b
+2	17891	1758003280066083608	/hdd/blee/4d/2mb4dgs/pruning_share2/simple-knn/build/temp.linux-x86_64-cpython-311/ext.o	494c706df1c2bd0
+2	68543	1758003330698583773	/hdd/blee/4d/2mb4dgs/pruning_share2/simple-knn/build/temp.linux-x86_64-cpython-311/spatial.o	e836bc5c595b7a18

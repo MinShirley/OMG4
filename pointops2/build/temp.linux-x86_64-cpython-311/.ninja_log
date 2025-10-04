@@ -1,0 +1,22 @@
+# ninja log v5
+4	24969	1758006864382812978	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/aggregation/aggregation_cuda.o	f46fbb50010a48f7
+7	26014	1758006865446825695	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe_v2/relative_pos_encoding_cuda_v2.o	af07839ac3201d02
+6	26130	1758006865562827081	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/interpolation/interpolation_cuda.o	cedc0f9c286d9e6e
+5	27386	1758006866810841996	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention_v2/attention_cuda_v2.o	434727cba8aff270
+6	28254	1758006867674852320	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/knnquery/knnquery_cuda.o	28184651fc78b116
+8	28607	1758006867978855952	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/subtraction/subtraction_cuda.o	640793c4afda6529
+7	29153	1758006868494862116	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe/relative_pos_encoding_cuda.o	51ea2a6d776b349b
+6	29186	1758006868526862499	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/grouping/grouping_cuda.o	581e78dd2e82f4f9
+5	29254	1758006868538862642	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention/attention_cuda.o	826c38fb8b75a79f
+8	29313	1758006868722864840	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/sampling/sampling_cuda.o	ea7025190691b1e8
+6	42702	1758006882127024815	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/interpolation/interpolation_cuda_kernel.o	c841e2b4cc524765
+6	43197	1758006882623030729	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/knnquery/knnquery_cuda_kernel.o	752ee0e1fb603bae
+5	43323	1758006882743032159	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention/attention_cuda_kernel.o	953384b9de8e87ab
+4	43559	1758006882999035212	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/grouping/grouping_cuda_kernel.o	4e6f6a0c7a3f5343
+4	43771	1758006883195037549	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/aggregation/aggregation_cuda_kernel.o	c390875f988fccc
+5	43917	1758006883299038789	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/attention_v2/attention_cuda_kernel_v2.o	1b15e56c26d837a0
+7	44202	1758006883595042317	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe/relative_pos_encoding_cuda_kernel.o	bb70439c1b9689a9
+8	44608	1758006884019047372	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/sampling/sampling_cuda_kernel.o	44dc53dd61a53072
+8	44665	1758006884059047848	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/subtraction/subtraction_cuda_kernel.o	32f749bb9020c65
+7	45487	1758006884911058004	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/rpe_v2/relative_pos_encoding_cuda_kernel_v2.o	485088e83da695d4
+6	47316	1758006886687079169	/hdd/blee/4d/2mb4dgs/pruning_share2/pointops2/build/temp.linux-x86_64-cpython-311/src/pointops_api.o	3802820cbc136181
