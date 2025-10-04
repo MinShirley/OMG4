@@ -4,6 +4,7 @@ Minseo Lee*, Byeonghyeon Lee*, Lucas Yunkyu Lee, Eunsoo Lee, Sangmin Kim, Seungh
 
 [Project Page](https://minshirley.github.io/OMG4/) &nbsp; [Paper] 
 
+![Teaser](https://github.com/MinShirley/OMG4/blob/main/assets/teaser.jpg?raw=true)
 
 Our code is built based on [4D-GS](https://github.com/fudan-zvg/4d-gaussian-splatting)
 
