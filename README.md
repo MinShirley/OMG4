@@ -2,7 +2,7 @@
 
 Minseo Lee*, Byeonghyeon Lee*, Lucas Yunkyu Lee, Eunsoo Lee, Sangmin Kim, Seunghyeon Song, Joo Chan Lee, Jong Hwan Ko, Jaesik Park, and Eunbyung Park†
 
-[Project Page](https://minshirley.github.io/OMG4/) &nbsp; [Paper] 
+[Project Page](https://minshirley.github.io/OMG4/) &nbsp; [Paper](https://arxiv.org/abs/2510.03857)
 
 ![Teaser](https://github.com/MinShirley/OMG4/blob/main/assets/teaser.jpg?raw=true)
 
