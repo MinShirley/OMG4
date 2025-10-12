@@ -60,7 +60,7 @@ def test_comp(dataset, opt, pipe, gaussian_dim, time_duration, num_pts, num_pts_
     background = torch.tensor(bg_color, dtype=torch.float32, device="cuda")
 
 
-    #xz 파일 불러오기
+
     xz_path = comp_checkpoint
     print(xz_path)
 
