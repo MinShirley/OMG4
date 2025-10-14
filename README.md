@@ -91,4 +91,3 @@ python -m OMG4_FTGS.test \
     --comp_checkpoint ./OMG4-FTGS_weights/cook_spinach.xz \
     --data_path data/N3V/cook_spinach
 ```
-```
