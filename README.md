@@ -84,3 +84,11 @@ python test.py \
 
 The weights reported in our paper are available for download on [Google Drive](https://drive.google.com/drive/folders/1WB7WYOUlvemfYZE35lkl_WV4fiF3p68v?usp=sharing).
 
+To evaluate OMG4-FTGS using a trained model, you can use the provided checkpoints.
+The checkpoints are available on [Google Drive](https://drive.google.com/drive/folders/1WB7WYOUlvemfYZE35lkl_WV4fiF3p68v?usp=sharing).
+```
+python -m OMG4_FTGS.test \
+    --comp_checkpoint ./OMG4-FTGS_weights/cook_spinach.xz \
+    --data_path data/N3V/cook_spinach
+```
+```
