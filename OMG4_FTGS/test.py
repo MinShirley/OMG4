@@ -33,16 +33,6 @@ from OMG4_FTGS.utils import *
 from OMG4_FTGS.dataloader import *
 from OMG4_FTGS._gaussians import *
 
-'''
-python test.py --comp_checkpoint /hdd_1/lms20031/final/Bartender_0.6/comp.xz --config configs/dynerf/Bartender_0.6.yaml
-
-
-python -m OMG4_FTGS.test \
-    --comp_checkpoint /hdd/blee/4d/FreeTimeGS-main/fpsweights/ours_L_weight/cook_spinach.xz \
-    --data_path /hdd_1/lms20031/OMG4_DATASET_REPRO/cook_spinach
-
-'''
-
 def test_comp(path, comp_checkpoint):
     xz_path = comp_checkpoint
 
