@@ -30,8 +30,38 @@ Then, please download the pretrained 4D-GS weight and gradients.
 You can download the weights from [Google Drive](https://drive.google.com/drive/folders/1WB7WYOUlvemfYZE35lkl_WV4fiF3p68v?usp=sharing).
 
 
-### 2. Training
+### 2. Data preparation
+Data preprocessing follows the method used in [4D-GS](https://github.com/fudan-zvg/4d-gaussian-splatting).
+Run the following command to prepare the data:
+```
+python scripts/n3v2blender.py data/N3V/$scene_name
+```
 
+The directory data/N3V/$scene_name should contain the following files before preprocessing:
+```
+data/N3V/$scene_name
+├── cam00.mp4
+├── cam01.mp4
+├── ...
+└── poses_bounds.npy
+```
+
+After running the script, the directory structure will look like this:
+```
+data/N3V/$scene_name
+├── cam00.mp4
+├── cam01.mp4
+├── ...
+├── poses_bounds.npy
+├── transforms_train.json
+├── transforms_test.json
+└── images
+    ├── cam00_0000.png
+    ├── cam00_0001.png
+    ├── ...
+```
+
+### 3. Training
 Gradient (2D mean, t) should be calculated in advance to sample important Gaussians.
 If --grad is not designated, it will automatically compute gradients.
 Once you compute gradients (or download provided gradients), please set --grad to your gradient path, not to compute them repeatedly.
@@ -44,7 +74,7 @@ python train.py \
 ```
 You can check the result (w/ various metrics, encoded model size, etc.) at **./res.txt**
 
-### 3. Evaluation
+### 4. Evaluation
 At the end of training, the evaluation process is implemented. Or you can evaluate the trained model with the encoded "comp.xz" file with the following command
 ```
 python test.py \
