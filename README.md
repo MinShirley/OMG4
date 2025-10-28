@@ -63,7 +63,14 @@ data/N3V/$scene_name
 
 ### 3. Training
 Gradient (2D mean, t) should be calculated in advance to sample important Gaussians.
-If --grad is not designated, it will automatically compute gradients.
+If you want to compute gradients, run the following command
+```
+python compute_gradient.py \
+  --config ./configs/dynerf/cook_spinach.yaml \
+  --start_checkpoint PATH_TO_4DGS_PRETRAINED \
+  --out_path PATH_TO_GRADIENT
+```
+
 Once you compute gradients (or download provided gradients), please set --grad to your gradient path, not to compute them repeatedly.
 ```
 python train.py \
